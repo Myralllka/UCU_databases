@@ -1,0 +1,3 @@
+
+\c university;
+select group_name, count from (select group_name, count(id) as count from student where ( id % 2 ) = 1 group by group_name) as V where count % 2 = 0 and count > 0 order by count, group_name;

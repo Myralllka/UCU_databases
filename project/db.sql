@@ -34,21 +34,15 @@ create table human_group (
 
 create table starship(
     id serial primary key,
-    name varchar not null
+    name varchar not null,
+    people_group_id int,
+    human_group_id int,
+    cordinate int
 );
 
 create table planet(
     id serial primary key,
     name varchar (50) not null
-);
-
-create table migration (
-    id serial primary key,
-    user_id integer references users(id),
-    starship_id integer references starship(id),
-    departure integer references planet(id),
-    destination integer references planet(id),
-    date timestamp default now()
 );
 
 create table experiment (
@@ -92,7 +86,12 @@ create table excursion (
 
 create table escapism (
     id serial primary key,
-    human integer references human(id),
-    starship integer references starship(id),
+    human_id integer references human(id),
+    starship_id integer references starship(id),
     date timestamp default now()
 );
+
+create table crash (
+    id serial primary key,
+    starship_id integer references starship(id)
+)

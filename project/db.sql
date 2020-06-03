@@ -1,13 +1,19 @@
 -- create database Alianers
 -- WITH  OWNER = postgres ENCODING = 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8' TABLESPACE = pg_default CONNECTION LIMIT = -1;
 -- \connect Alianers;
+
+create table planet(
+    id serial primary key,
+    name varchar (50) not null
+);
+
 create table users (
     id serial primary key,
     username varchar(45) not NULL ,
     usersurname varchar(45) not NULL ,
     password varchar(45) not NULL ,
     role bool,
-    alive bool not null default 1,
+    alive bool not null default true,
     planet integer references planet(id),
     check(length(password) between 6 and 45)
 );
@@ -38,11 +44,6 @@ create table starship(
     people_group_id int,
     human_group_id int,
     cordinate int
-);
-
-create table planet(
-    id serial primary key,
-    name varchar (50) not null
 );
 
 create table experiment (

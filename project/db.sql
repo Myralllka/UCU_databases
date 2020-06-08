@@ -41,7 +41,7 @@ create table human_group (
 create table starship(
     id serial primary key,
     name varchar not null,
-    people_group_id int,
+    alien_group_id int,
     human_group_id int,
     cordinate int
 );

@@ -1,0 +1,39 @@
+.page-header {
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.header-menu {
+    width: 100%;
+    display: inherit;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.header-menu a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.menu-active {
+    color: var(--red);
+}
+
+@media only screen and (max-width: 1000px) {
+    .header-menu {
+        font-size: 2em;
+        /*flex-direction: column;*/
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-menu {
+        font-size: 1em;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
